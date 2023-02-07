@@ -1,0 +1,800 @@
+@import "../../common/css/common";
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: 900;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-900-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: bold;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-700-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: normal;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-500-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: 300;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf');
+}
+
+#site-wrap {
+	font-family: museosans;
+	font-weight: normal;
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: bold;
+	}
+	section {
+		> .contenu {
+			.silly-b2c-font-size(@max-font-size: 20px, @mobile-based-font-size: 24px);
+			font-weight: 300;
+			color: #2C2D2E;
+			padding: 3% 0;
+			@media screen and (max-width: @mobile-breakpoint) {
+				padding: 10% 1.5em;
+			}
+			p {
+				margin-bottom: 0;
+				&.strong {
+					font-weight: 700;
+				}
+			}
+			>p {
+				text-align: center;
+				max-width: 60em;
+			}
+			strong {
+				font-weight: 700;
+			}
+			>h2 {
+				font-size: (40/20em);
+				color: black;
+				max-width: 30em;
+				@media screen and (max-width: @mobile-breakpoint) {
+					max-width: 100%;
+				}
+			}
+		}
+
+		&.concept {
+			.concept-slider {
+				position: relative;
+				width: 100%;
+				max-width: 890px;
+				margin: 2em auto 0;
+				.flickity-prev-next-button {
+					outline: none;
+					border: 0;
+					padding: 0;
+					.proportional(1/1);
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 3em;
+					max-width: 52px;
+					background: url("data-url:/site/coral.ru/assets-inline/right-button-translucent.svg") center no-repeat;
+					background-size: contain;
+					backdrop-filter: blur(4px);
+					border-radius: 50%;
+					.transit(opacity);
+					cursor: pointer;
+					&[disabled] {
+						pointer-events: none;
+						opacity: 0;
+					}
+					&.next {
+						left: calc(~"100% + (100vw - 100%) / 5");
+						@media screen and (max-width: 1200px) {
+						    left: auto;
+							right: 5%;
+						}
+					}
+
+					&.previous {
+						right: calc(~"100% + (100vw - 100%) / 5");
+						transform: translateY(-50%) scaleX(-1);
+						@media screen and (max-width: 1200px) {
+							right: auto;
+							left: 5%;
+						}
+					}
+
+					> svg {
+						display: none;
+					}
+				}
+				.slide {
+					.proportional(890/498);
+					width: 100%;
+					background: center no-repeat;
+					background-size: cover;
+					margin: 1em;
+					&:not(.is-selected) {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		&.why-coral-traver-elite {
+			>.contenu {
+				ul.facts {
+					display: flex;
+					justify-content: center;
+					margin: 0;
+					padding: 0!important;
+					@media screen and (max-width: @mobile-breakpoint) {
+					    flex-wrap: wrap;
+					}
+					>li {
+						.flex-column;
+						align-items: center;
+						text-align: center;
+						padding: 1.5em;
+						&.last-on-mobile {
+							@media screen and (max-width: @mobile-breakpoint) {
+							    order: 1;
+							}
+						}
+						@media screen and (max-width: @mobile-breakpoint) {
+						    flex: 0 1 40%;
+							padding: 1em;
+						}
+						strong {
+							font-size: (56/20em);
+							color: #F0AB00;
+							@media screen and (max-width: @mobile-breakpoint) {
+								font-size: (64/24em);
+							}
+						}
+						.label {
+							line-height: 1.2;
+							&.nobr {
+								white-space: nowrap;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.book-in-premium-offices {
+			>.contenu {
+				.actions {
+					margin-top: 2em;
+				}
+				ul.office-benefits {
+					display: flex;
+					justify-content: center;
+					margin: 0;
+					padding: 0!important;
+					margin-top: 1em;
+					@media screen and (max-width: @mobile-breakpoint) {
+						flex-wrap: wrap;
+					}
+					>li {
+						.flex-column;
+						align-items: center;
+						text-align: center;
+						padding: 2em;
+						@media screen and (max-width: @mobile-breakpoint) {
+						    flex: 0 1 50%;
+							padding: 1em;
+							font-size: 75%;
+						}
+						.icon {
+							.proportional(1/1);
+							width: 5em;
+							background: center no-repeat;
+							background-size: contain;
+							margin-bottom: 1em;
+						}
+						.label {
+							line-height: 1.2;
+						}
+					}
+				}
+				.apply-contact {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					@media screen and (max-width: @mobile-breakpoint) {
+					    display: block;
+						margin-top: 2em;
+					}
+					>* {
+						width: calc(~"50% - 1em");
+						border-radius: .5em;
+					}
+					.visual {
+						.proportional(720/470);
+						background: url("/site/coral.ru/assets/apply-contact-visual.jpg") center no-repeat;
+						background-size: cover;
+						@media screen and (max-width: @mobile-breakpoint) {
+							width: 100%;
+						}
+					}
+					.info {
+						.flex-column;
+						justify-content: space-evenly;
+						align-items: center;
+						text-align: center;
+						background: white;
+						padding: 1em 5em;
+						@media screen and (max-width: @mobile-breakpoint) {
+							width: 100%;
+							padding: 2em 1em;
+							margin-top: 1em;
+						}
+						>* {
+							margin: auto;
+							&:nth-child(n+2) {
+								@media screen and (max-width: @mobile-breakpoint) {
+									margin-top: 5%;
+								}
+							}
+						}
+						p {
+							line-height: 1.2;
+						}
+						.icon {
+							.proportional(1/1);
+							background: center no-repeat;
+							background-size: contain;
+							width: 5em;
+						}
+						.phone-number {
+							font-size: (44/20em);
+							color: #FFAE00;
+							font-weight: 700;
+							white-space: nowrap;
+						}
+					}
+				}
+				.additional-services {
+					.flex-column;
+					align-items: center;
+					background: white;
+					border-radius: 2em;
+					padding: 2em;
+					margin-top: 2em;
+					h2 {
+						font-size: (40/20em);
+						max-width: none;
+						@media screen and (max-width: @mobile-breakpoint) {
+							font-size: 1.5em;
+						}
+					}
+					>p {
+						font-size: (24/20em);
+						line-height: 1.2;
+						text-align: center;
+						@media screen and (max-width: @mobile-breakpoint) {
+							font-size: 1em;
+						}
+					}
+					ul.services {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+						margin: 0;
+						padding: 0!important;
+						margin-top: 1em;
+						@media screen and (max-width: @mobile-breakpoint) {
+							flex-wrap: wrap;
+						}
+						>li {
+							flex: 1 1 30%;
+							.flex-column;
+							align-items: center;
+							text-align: center;
+							padding: 2em;
+							@media screen and (max-width: @mobile-breakpoint) {
+								flex: 0 1 50%;
+								padding: 1em;
+								font-size: 75%;
+							}
+							.icon {
+								.proportional(1/1);
+								width: 100%;
+								height: 5em;
+								background: center no-repeat;
+								background-size: contain;
+								margin-bottom: 1em;
+							}
+							.label {
+								line-height: 1.2;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.destinations {
+			>.contenu {
+				.destination-performance {
+					width: 100vw;
+					max-width: 1920px;
+					.proportional(1920/963);
+					margin-top: 2em;
+					@media screen and (max-width: @mobile-breakpoint) {
+						position: static;
+						&:before {
+							content: none;
+						}
+					}
+					.video-bundle {
+						.abs100x100;
+						@media screen and (max-width: @mobile-breakpoint) {
+							.proportional(1920/963);
+						}
+						.vimeo-video-box {
+							display: none;
+							.abs100x100;
+							background: center no-repeat;
+							background-size: cover;
+							//opacity: 0;
+							//.transit(opacity, 1s);
+							&.selected {
+								//opacity: 1;
+							}
+							@media screen and (max-width: @mobile-breakpoint) {
+
+							}
+
+							> iframe {
+								.abs100x100;
+							}
+
+							&[data-content-marker="turkey"] {
+								background-image: url("/site/coral.ru/assets/poster-turkey-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-turkey-mobile.jpg");
+								}
+							}
+
+							&[data-content-marker="tailand"] {
+								background-image: url("/site/coral.ru/assets/poster-tailand-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-tailand-mobile.jpg");
+								}
+							}
+
+							&[data-content-marker="egypt"] {
+								background-image: url("/site/coral.ru/assets/poster-egypt-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-egypt-mobile.jpg");
+								}
+							}
+
+							&[data-content-marker="maldives"] {
+								background-image: url("/site/coral.ru/assets/poster-maldives-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-maldives-mobile.jpg");
+								}
+							}
+
+							&[data-content-marker="uae"] {
+								background-image: url("/site/coral.ru/assets/poster-uae-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-uae-mobile.jpg");
+								}
+							}
+
+							&[data-content-marker="srilanka"] {
+								background-image: url("/site/coral.ru/assets/poster-srilanka-desktop.jpg");
+								@media screen and (max-width: @mobile-breakpoint) {
+									background-image: url("/site/coral.ru/assets/poster-srilanka-mobile.jpg");
+								}
+							}
+						}
+					}
+					.info-ctl {
+						.flex-column;
+						width: 50%;
+						max-width: 720px;
+						left: 50%;
+						padding: 3em;
+						overflow: hidden;
+						background: rgba(0, 0, 0, 0.35);
+						backdrop-filter: blur(6px);
+						color: white;
+						@media screen and (max-width: 1200px) {
+							font-size: 80%;
+						}
+						@media screen and (max-width: @mobile-breakpoint) {
+							position: static;
+							width: 100%;
+							height: 37em;
+							padding: 1.5em;
+							background: #777777;
+							backdrop-filter: none;
+						}
+						ul.infos {
+							height: 62%;
+							.flex-column;
+							overflow: hidden;
+							margin: 0;
+							padding: 0 !important;
+							> li {
+								flex-basis: 0;
+								opacity: 0;
+								overflow: hidden;
+								.transit(flex-basis);
+								.transit(opacity);
+								&.selected {
+									flex-basis: 100%;
+									opacity: 1;
+								}
+								h4 {
+									font-size: (54/20em);
+									color: inherit;
+									margin-bottom: 1em;
+								}
+							}
+						}
+						>p {
+							font-size: (24/20em);
+							font-weight: 700;
+						}
+						.ctl-slider {
+							position: relative;
+							margin: auto 0;
+							.flickity-prev-next-button {
+								outline: none;
+								border: 0;
+								padding: 0;
+								.proportional(1/1);
+								position: absolute;
+								top: 50%;
+								width: 3em;
+								max-width: 52px;
+								background: url("data-url:/site/coral.ru/assets-inline/right-button-translucent.svg") center no-repeat;
+								background-size: contain;
+								backdrop-filter: blur(4px);
+								border-radius: 50%;
+								.transit(opacity);
+								cursor: pointer;
+								&[disabled] {
+									pointer-events: none;
+									opacity: 0;
+								}
+								&.next {
+									left: 100%;
+									transform: translate(-110%,-50%);
+									@media screen and (max-width: 1200px) {
+										//left: auto;
+										//right: 5%;
+									}
+								}
+								&.previous {
+									right: 100%;
+									transform: translate(30%,-50%) scaleX(-1);
+									@media screen and (max-width: 1200px) {
+										//right: auto;
+										//left: 5%;
+									}
+								}
+								> svg {
+									display: none;
+								}
+							}
+							.slide {
+								.proportional(258/186);
+								width: 45%;
+								margin: 0 0.5em;
+								background: center no-repeat;
+								background-size: cover;
+								border-radius: .5em;
+								overflow: hidden;
+								&.is-selected {
+									.label {
+										opacity: 0;
+										pointer-events: none;
+									}
+								}
+								.label {
+									.flex-center;
+									font-size: (24/20em);
+									font-weight: 500;
+									line-height: 1;
+									background: rgba(0, 0, 0, .3);
+									color: white;
+									letter-spacing: .05em;
+									text-shadow: 0 0 2px rgba(0,0,0,.5);
+									.transit(opacity);
+									cursor: pointer;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.elite-leasure {
+			>.contenu {
+				>h2 {
+					margin-top: 1.5em;
+				}
+				.elite-leasure-to-whom-appreciate {
+					width: 100%;
+					.proportional(1440/780);
+					background: url("/site/coral.ru/assets/leasure-visual-desktop.jpg") center no-repeat;
+					background-size: cover;
+					border-radius: 1em;
+					overflow: hidden;
+					@media screen and (max-width: @mobile-breakpoint) {
+						.proportional(720/512);
+						width: 100vw;
+						max-width: none;
+						background-image: url("/site/coral.ru/assets/leasure-visual-mobile.jpg");
+						border-radius: 0;
+					}
+
+					.info {
+						.flex-column;
+						justify-content: center;
+						padding: 4em;
+						width: 50%;
+						color: white;
+						background: linear-gradient(180deg, rgba(172, 205, 235, 0.75) 0%, rgba(86, 86, 85, 0) 100%);
+						backdrop-filter: blur(12px);
+						@media screen and (max-width: @mobile-breakpoint) {
+							justify-content: flex-start;
+							width: 100%;
+							backdrop-filter: none;
+							font-size: 80%;
+							padding: 2em;
+						}
+						> *:nth-child(n+2) {
+							margin-top: 10%;
+							@media screen and (max-width: @mobile-breakpoint) {
+								margin-top: 5%;
+							}
+						}
+
+						h3 {
+							font-size: (54/20em);
+							line-height: 1.2;
+							text-align: left;
+							color: inherit;
+							margin: 0;
+							@media screen and (max-width: @mobile-breakpoint) {
+								font-size: 2em;
+							}
+						}
+					}
+				}
+
+				.alternate-layout {
+					.villas-and-suites {
+						display: flex;
+						justify-content: space-between;
+						background: white;
+						border-radius: 1em;
+						margin-top: 5%;
+						@media screen and (max-width: @mobile-breakpoint) {
+						    display: block;
+							padding: 1em;
+						}
+						&:nth-child(odd) {
+							flex-direction: row-reverse;
+						}
+						&:nth-child(even) {
+							flex-direction: row;
+						}
+						>* {
+							width: calc(~"50% - 1em");
+							@media screen and (max-width: @mobile-breakpoint) {
+								width: 100%;
+							}
+						}
+						.info {
+							.flex-column;
+							justify-content: center;
+							padding: 0 4em;
+							@media screen and (max-width: @mobile-breakpoint) {
+								padding: 0;
+							}
+							h4 {
+								font-size: (32/20em);
+								margin-bottom: 1em;
+							}
+						}
+						.visual {
+							.proportional(720/726);
+							background: center no-repeat;
+							background-size: cover;
+							border-radius: 1em;
+							@media screen and (max-width: @mobile-breakpoint) {
+								width: 100%;
+								margin: 1em 0 2em;
+							}
+							.note {
+								height: auto;
+								top: 100%;
+								font-size: (14/20em);
+								line-height: 1.1;
+								text-align: center;
+								padding: 1em;
+								a {
+									color: #0067B5;
+									font-family: inherit;
+									font-size: inherit;
+									line-height: inherit;
+									text-decoration: underline;
+								}
+							}
+						}
+					}
+				}
+
+			}
+		}
+
+		&.fin-c2a {
+			>.contenu {
+				.contact-block {
+					width: 100%;
+					.proportional(1440/453);
+					background: url("/site/coral.ru/assets/fin-c2a-desktop.jpg") center no-repeat;
+					background-size: cover;
+					@media screen and (max-width: @mobile-breakpoint) {
+						.proportional(720/458);
+						background-image: url("/site/coral.ru/assets/fin-c2a-mobile.jpg");
+						width: 100vw;
+						max-width: none;
+					}
+					.info {
+						width: 55%;
+						.flex-column;
+						justify-content: center;
+						padding: 0 4em;
+						@media screen and (max-width: @mobile-breakpoint) {
+							justify-content: flex-start;
+							font-size: 70%;
+							padding: 2em;
+							width: 65%;
+						}
+						h3 {
+							font-size: (32/20em);
+							text-align: left;
+							margin-bottom: 1em;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.flickity-enabled {
+	outline: none;
+}
+
+.actions {
+	>button, >a {
+		font-family: inherit;
+		font-size: inherit!important;
+		line-height: inherit;
+		font-weight: 500;
+		.interactive;
+		outline: none!important;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 1.5em;
+		height: (48/20em);
+		background: #F0AB00;
+		border-radius: 8px;
+		border: 0;
+		color: white!important;
+		cursor: pointer;
+		&.hollow {
+			background: transparent;
+			color: black!important;
+			border: 2px solid currentColor;
+		}
+		&.ramp {
+			background: linear-gradient(45.62deg, #FB7099 0%, #F0AB13 100%);;
+		}
+		&.with-down-arrow {
+			&:after {
+				content: '';
+				width: .75em;
+				height: .75em;
+				background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxOCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDFMOC41NjM2NCA5TDEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==") center no-repeat;
+				background-size: contain;
+				margin-left: 1em;
+			}
+		}
+		&.with-right-arrow {
+			&:after {
+				content: '';
+				width: .75em;
+				height: .75em;
+				background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxMSAxOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgMS40MjA0MUw5IDkuODU2NzdMMSAxNy40MjA0IiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K") center no-repeat;
+				background-size: contain;
+				margin-left: 1em;
+			}
+		}
+	}
+}
+
+#hotels-set {
+	max-width: 1440px;
+	margin: 3% auto 3em;
+	@media screen and (max-width: @mobile-breakpoint) {
+		margin: 6% auto 3em;
+	}
+}
+
+body .subpage-search-bg {
+	> .background {
+		.reset;
+		position: relative;
+		&:before {
+			content: unset;
+		}
+		.video-box {
+			.proportional(426/180);
+			width: 100%;
+			@media screen and (max-width: @mobile-breakpoint) {
+				.proportional(246/240);
+			}
+
+			.backdrop {
+				background: url("/site/coral.ru/assets/intro-desktop.jpg") center no-repeat;
+				background-size: cover;
+				@media screen and (max-width: @mobile-breakpoint) {
+					background-image: url(/site/coral.ru/assets/intro-mobile.jpg);
+				}
+			}
+
+			.vimeo-wrap {
+				opacity: 0;
+				.transit(opacity, 1s);
+				&.playback {
+					opacity: 1;
+				}
+				iframe {
+					.abs100x100;
+				}
+			}
+
+			video {
+				object-fit: cover;
+			}
+
+			.info-overlay {
+				.flex-center;
+				font-family: museosans;
+				.silly-b2c-font-size(@max-font-size: 94px, @mobile-based-font-size: 54px);
+				h2 {
+					font-size: 1em;
+					line-height: 1;
+					font-weight: 300;
+					color: white;
+				}
+			}
+		}
+	}
+	.searchtabsmain {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	.bcrumb {
+		display: none!important;
+	}
+}
