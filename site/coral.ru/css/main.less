@@ -442,7 +442,7 @@
 						background: rgba(0, 0, 0, 0.35);
 						backdrop-filter: blur(6px);
 						color: white;
-						@media screen and (max-width: 1200px) {
+						@media screen and (max-width: 1280px) {
 							font-size: 80%;
 						}
 						@media screen and (max-width: @mobile-breakpoint) {
@@ -479,10 +479,11 @@
 						>p {
 							font-size: (24/20em);
 							font-weight: 700;
+							margin: auto 0 1.5em;
 						}
 						.ctl-slider {
 							position: relative;
-							margin: auto 0;
+							margin: 0 0 auto;
 							.flickity-prev-next-button {
 								outline: none;
 								border: 0;
@@ -641,6 +642,10 @@
 							.flex-column;
 							justify-content: center;
 							padding: 0 4em;
+							@media screen and (max-width: 1199px) {
+								font-size: 90%;
+								padding: 0 3em;
+							}
 							@media screen and (max-width: @mobile-breakpoint) {
 								padding: 0;
 							}
