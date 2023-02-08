@@ -499,12 +499,16 @@
 								background-size: cover;
 								border-radius: .5em;
 								overflow: hidden;
+								.transit(box-shadow);
 								&.is-selected {
+									box-shadow: 0 0 0 3px rgba(240, 171, 0, 1);
+
 									.label {
 										opacity: 0;
 										pointer-events: none;
 									}
 								}
+
 								.label {
 									.flex-center;
 									font-size: (24/20em);
@@ -513,7 +517,7 @@
 									background: rgba(0, 0, 0, .3);
 									color: white;
 									letter-spacing: .05em;
-									text-shadow: 0 0 2px rgba(0,0,0,.5);
+									text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 									.transit(opacity);
 									cursor: pointer;
 								}
