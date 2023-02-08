@@ -142,8 +142,34 @@
 	}
 }
 
+.jsless-popin(@shutter-background: rgba(0,0,0,0.8), @container-background: #fff) {
+	.bbox;
+	display: none !important;
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	&:target {
+		display: flex !important;
+	}
+	& > a {
+		position: absolute;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: @shutter-background;
+		cursor: default;
+	}
+	.popin-container {
+		margin: auto;
+		background: @container-background;
+		box-shadow: 0 2px 32px fadeout(@shutter-background, 38%);
+	}
+}
 
-.flex-center {
+.flex-center() {
 	display: flex;
 	justify-content: center;
 	align-items: center;

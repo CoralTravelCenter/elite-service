@@ -340,17 +340,22 @@
 							.abs100x100;
 							background: center no-repeat;
 							background-size: cover;
-							//opacity: 0;
-							//.transit(opacity, 1s);
-							&.selected {
-								//opacity: 1;
-							}
 							@media screen and (max-width: @mobile-breakpoint) {
 
 							}
+							&.selected {
 
+							}
+							&.playback {
+								> iframe {
+									opacity: 1;
+								}
+							}
 							> iframe {
 								.abs100x100;
+								pointer-events: none;
+								opacity: 0;
+								.transit(opacity, 1s);
 							}
 
 							&[data-content-marker="turkey"] {
@@ -673,8 +678,39 @@
 				}
 			}
 		}
-
 	}
+
+	#app-form {
+		.jsless-popin();
+		.popin-container {
+			position: relative;
+			height: 90vh;
+			padding: 1em 1.5em 1em;
+			border-radius: 1em;
+			width: 90vw;
+			max-width: 450px;
+			overflow: hidden;
+			@media screen and (max-width: @mobile-breakpoint) {
+				height: 80vh;
+			}
+			iframe {
+				.abs100x100;
+			}
+			.dismiss {
+				.interactive;
+				position: absolute;
+				top: 0;
+				right: 0;
+				.flex-center;
+				color: inherit;
+				font-size: 2em;
+				line-height: 1;
+				width: 1.5em;
+				height: 1.5em;
+			}
+		}
+	}
+
 }
 
 .flickity-enabled {

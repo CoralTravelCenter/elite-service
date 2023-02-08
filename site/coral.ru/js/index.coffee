@@ -132,3 +132,27 @@ ASAP ->
                 portrait: 0
             p.on 'play', ->
                 $player_el.addClass 'playback'
+
+    io = new IntersectionObserver (entries, observer) ->
+        for entry in entries
+            $player_el = $(entry.target)
+            vplayer = $player_el.prop 'vimeo-player'
+            if entry.isIntersecting
+                if vplayer
+                    vplayer.play()
+                else
+                    vplayer = new Vimeo.Player $player_el.get(0),
+                        id: $player_el.attr('data-vid')
+                        background: 1
+                        playsinline: 1
+                        autopause: 0
+                        title: 0
+                        byline: 0
+                        portrait: 0
+                    $player_el.prop 'vimeo-player', vplayer
+                    vplayer.on 'play', ->
+                        $player_el.addClass 'playback'
+            else
+                vplayer?.pause()
+    , threshold: 0.5
+    $('.vimeo-video-box').each (idx, video_box) -> io.observe video_box
