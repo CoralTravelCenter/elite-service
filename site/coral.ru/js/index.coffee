@@ -156,3 +156,8 @@ ASAP ->
                 vplayer?.pause()
     , threshold: 0.5
     $('.vimeo-video-box').each (idx, video_box) -> io.observe video_box
+
+    $(document).on 'click', '[data-ym-reachgoal]', ->
+        goal = $(this).attr('data-ym-reachgoal')
+        ym?(553380, 'reachGoal', goal)
+    $(document).on 'click', '.card-cell .buttonlike', -> ym?(553380, 'reachGoal', 'elite-bron')
